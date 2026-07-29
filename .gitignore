@@ -17,3 +17,5 @@ wheels/
 
 data/chroma/
 data/uploads/
+
+.vscode/
