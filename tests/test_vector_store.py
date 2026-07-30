@@ -81,3 +81,76 @@ def test_clear_collection_removes_all_chunks(
     )
 
     assert results == []
+
+@pytest.fixture
+def indexed_collection(
+    chunks: list[Chunk],
+    embeddings: list[list[float]],
+) -> None:
+    """Index the sample PDF into ChromaDB."""
+
+    clear_collection()
+
+    add_chunks(
+        chunks,
+        embeddings,
+    )
+
+
+def test_search_returns_chunks(
+    indexed_collection: None,
+) -> None:
+    results = search(
+        embed_query("machine learning"),
+    )
+
+    assert isinstance(results, list)
+
+    assert all(
+        isinstance(chunk, Chunk)
+        for chunk in results
+    )
+
+
+def test_search_returns_results(
+    indexed_collection: None,
+) -> None:
+    results = search(
+        embed_query("machine learning"),
+    )
+
+    assert results
+
+
+def test_search_returns_chunk_metadata(
+    indexed_collection: None,
+) -> None:
+    chunk = search(
+        embed_query("machine learning"),
+    )[0]
+
+    assert chunk.source == "sample.pdf"
+    assert chunk.page_number >= 1
+    assert chunk.start_char >= 0
+    assert chunk.end_char > chunk.start_char
+
+
+def test_search_respects_n_results(
+    indexed_collection: None,
+) -> None:
+    results = search(
+        embed_query("machine learning"),
+        n_results=2,
+    )
+
+    assert len(results) <= 2
+
+
+def test_search_empty_collection_returns_empty_list() -> None:
+    clear_collection()
+
+    results = search(
+        embed_query("machine learning"),
+    )
+
+    assert results == []
