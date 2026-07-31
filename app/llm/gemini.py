@@ -5,7 +5,7 @@ import os
 from dotenv import load_dotenv
 from google import genai
 
-MODEL_NAME = "gemini-2.5-flash"
+MODEL_NAME = "gemini-3.5-flash"
 
 load_dotenv()
 
