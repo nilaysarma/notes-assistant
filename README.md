@@ -23,10 +23,8 @@ The application processes documents using semantic search, retrieves the most re
 ## 🖥️ Demo
 
 <p align="center">
-  <img src="https://nilaysarma.github.io/assets/notes-assistant-demo.gif" alt="demo">
+  <img src="demo.gif" width="800" alt="demo">
 </p>
-
-![demo](https://nilaysarma.github.io/assets/notes-assistant-demo.gif)
 
 ### Upload a document
 
