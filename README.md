@@ -22,9 +22,9 @@ The application processes documents using semantic search, retrieves the most re
 
 ## 🖥️ Demo
 
-<video src="demo.mp4" controls width="100%">
-    Your browser does not support the video tag. [Download the demo video](demo.mp4).
-</video>
+<p align="center">
+  <video src="https://github.com/nilaysarma/notes-assistant/raw/refs/heads/main/demo.mp4" width="450" controls></video>
+</p>
 
 ### Upload a document
 
