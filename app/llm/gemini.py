@@ -1,27 +1,20 @@
 from __future__ import annotations
 
-import os
-
-from app.utils.logger import logger
-from dotenv import load_dotenv
 from google import genai
 
-MODEL_NAME = "gemini-3.5-flash"
-
-load_dotenv()
+from app.core.config import settings
+from app.utils.logger import logger
 
 
 def _load_client() -> genai.Client:
-    """Create a Gemini client."""
-
-    api_key = os.getenv("GEMINI_API_KEY")
-
-    if api_key is None or not api_key.strip():
+    if not settings.google_api_key.strip():
         raise ValueError(
-            "GEMINI_API_KEY environment variable is not set."
+            "GOOGLE_API_KEY environment variable is not set."
         )
 
-    return genai.Client(api_key=api_key)
+    return genai.Client(
+        api_key=settings.google_api_key,
+)
 
 
 def _validate_prompt(
@@ -44,15 +37,15 @@ def _generate_response(
     prompt: str,
 ) -> str:
     """Generate a response using Gemini."""
-
-    response = client.models.generate_content(
-        model=MODEL_NAME,
-        contents=prompt,
+    
+    logger.info(
+        "Generating response with Gemini"
     )
 
-    logger.info(
-    "Generating response with Gemini"
-)
+    response = client.models.generate_content(
+        model=settings.gemini_model,
+        contents=prompt,
+    )
 
     text = response.text
 

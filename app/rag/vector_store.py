@@ -1,13 +1,13 @@
 from pathlib import Path
 from typing import cast
 
-from app.utils.logger import logger
 import chromadb
 from chromadb import Collection
 from chromadb.api import ClientAPI
 from chromadb.api.types import Embedding, Metadata
 
 from app.models.chunk import Chunk
+from app.utils.logger import logger
 
 DATA_DIR = Path("data")
 CHROMA_PATH = DATA_DIR / "chroma"
