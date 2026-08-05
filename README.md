@@ -22,7 +22,9 @@ The application processes documents using semantic search, retrieves the most re
 
 ## 🖥️ Demo
 
-Watch the demo video: [demo.mp4](demo.mp4)
+<video src="demo.mp4" controls width="100%">
+    Your browser does not support the video tag. [Download the demo video](demo.mp4).
+</video>
 
 ### Upload a document
 
