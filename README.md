@@ -193,11 +193,8 @@ uv run python -m pytest
 ## 🚀 Future Improvements
 
 - Chrome Extension for indexing web pages
-- FastAPI backend
 - Multi-document support
 - Embedding progress bar
-- Chat history
-- OCR support for scanned PDFs
 
 ---
 
