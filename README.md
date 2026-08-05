@@ -22,6 +22,8 @@ The application processes documents using semantic search, retrieves the most re
 
 ## 🖥️ Demo
 
+Watch the demo video: [demo.mp4](demo.mp4)
+
 ### Upload a document
 
 Upload any PDF and index it into the vector database.
