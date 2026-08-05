@@ -26,6 +26,8 @@ The application processes documents using semantic search, retrieves the most re
   <img src="https://nilaysarma.github.io/assets/notes-assistant-demo.gif" alt="demo">
 </p>
 
+![demo](https://nilaysarma.github.io/assets/notes-assistant-demo.gif)
+
 ### Upload a document
 
 Upload any PDF and index it into the vector database.
