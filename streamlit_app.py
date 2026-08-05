@@ -115,4 +115,23 @@ if st.session_state.answer_result is not None:
 
     st.subheader("Answer")
 
-    st.write(result.answer)
+    st.markdown(result.answer)
+
+    st.divider()
+
+    st.subheader("Sources")
+
+    for index, chunk in enumerate(
+        result.chunks,
+        start=1,
+    ):
+        with st.expander(
+            (
+                f"📄 Page {chunk.page_number}"
+            )
+        ):
+            st.caption(
+                f"Source: {chunk.source}"
+            )
+
+            st.text(chunk.text)
