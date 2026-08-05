@@ -3,6 +3,7 @@ from pathlib import Path
 
 import streamlit as st
 
+from app.rag.vector_store import clear_collection
 from app.services.rag_service import (
     answer_question,
     index_document,
@@ -38,6 +39,9 @@ index_button = st.button(
 )
 
 if index_button:
+    st.session_state.indexing_result = None
+    st.session_state.answer_result = None
+
     if uploaded_file is None:
         st.error("Please upload a PDF.")
         st.stop()
@@ -53,6 +57,7 @@ if index_button:
             pdf_path = Path(temp_file.name)
 
         with st.spinner("Indexing document..."):
+            clear_collection()
             result = index_document(pdf_path)
 
         st.session_state.document_indexed = True
