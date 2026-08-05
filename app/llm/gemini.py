@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import os
 
+from app.utils.logger import logger
 from dotenv import load_dotenv
 from google import genai
 
@@ -48,6 +49,10 @@ def _generate_response(
         model=MODEL_NAME,
         contents=prompt,
     )
+
+    logger.info(
+    "Generating response with Gemini"
+)
 
     text = response.text
 

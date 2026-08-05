@@ -1,6 +1,7 @@
 from pathlib import Path
 from typing import cast
 
+from app.utils.logger import logger
 import chromadb
 from chromadb import Collection
 from chromadb.api import ClientAPI
@@ -154,6 +155,11 @@ def add_chunks(
         raise ValueError(
             "The number of chunks must match the number of embeddings."
         )
+
+    logger.info(
+        "Added %d chunks to ChromaDB",
+        len(chunks),
+    )
 
     collection = _get_or_create_collection()
 
