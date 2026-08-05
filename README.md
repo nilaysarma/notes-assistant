@@ -4,6 +4,10 @@ An end-to-end Retrieval-Augmented Generation (RAG) application that allows users
 
 The application processes documents using semantic search, retrieves the most relevant context, and generates accurate answers using Google's Gemini model.
 
+![Python](https://img.shields.io/badge/Python-3.12-blue)
+![Tests](https://img.shields.io/badge/Tests-Passing-brightgreen)
+![License](https://img.shields.io/badge/License-MIT-green)
+
 ---
 
 ## ✨ Features
